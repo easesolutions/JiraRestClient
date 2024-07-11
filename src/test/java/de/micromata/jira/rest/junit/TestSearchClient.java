@@ -24,8 +24,8 @@ public class TestSearchClient extends BaseTest {
     public void testSearchIssues() throws RestException, IOException, ExecutionException, InterruptedException {
         JqlSearchBean jsb = new JqlSearchBean();
         JqlBuilder builder = new JqlBuilder();
-        String jql = builder.addCondition(EField.PROJECT, EOperator.EQUALS, "DEMO")
-                .and().addCondition(EField.STATUS, EOperator.EQUALS, STATUS_OPEN)
+        String jql = builder.addCondition(EField.PROJECT, EOperator.EQUALS, projectKeyToSearch)
+                .and().addCondition(EField.STATUS, EOperator.IN, STATUS_OPEN, STATUS_IN_PROGRESS)
                 .orderBy(SortOrder.ASC, EField.CREATED);
         jsb.setJql(jql);
         jsb.addField(EField.ISSUE_KEY, EField.STATUS, EField.DUE, EField.SUMMARY, EField.ISSUE_TYPE, EField.PRIORITY, EField.UPDATED, EField.TRANSITIONS);
@@ -43,7 +43,7 @@ public class TestSearchClient extends BaseTest {
     public void testSearchIssueWithMultipleValues() throws IOException, RestException, ExecutionException, InterruptedException {
         JqlSearchBean jsb = new JqlSearchBean();
         JqlBuilder builder = new JqlBuilder();
-        String jql = builder.addCondition(EField.PROJECT, EOperator.EQUALS, "DEMO")
+        String jql = builder.addCondition(EField.PROJECT, EOperator.EQUALS, projectKeyToSearch)
                 .and().addCondition(EField.STATUS, EOperator.IN, STATUS_OPEN, STATUS_IN_PROGRESS)
                 .orderBy(SortOrder.ASC, EField.CREATED);
         jsb.setJql(jql);
@@ -61,7 +61,7 @@ public class TestSearchClient extends BaseTest {
     public void testCountIssues() throws ExecutionException, InterruptedException, IOException, RestException {
         JqlSearchBean jsb = new JqlSearchBean();
         JqlBuilder builder = new JqlBuilder();
-        String jql = builder.addCondition(EField.PROJECT, EOperator.EQUALS, "EXPORT").build();
+        String jql = builder.addCondition(EField.PROJECT, EOperator.EQUALS, projectKeyToSearch).build();
         jsb.setJql(jql);
         jsb.addField(EField.ISSUE_KEY, EField.STATUS, EField.DUE, EField.ISSUE_TYPE);
         Future<JqlSearchResult> future = jiraRestClient.getSearchClient().searchIssues(jsb);
@@ -78,7 +78,7 @@ public class TestSearchClient extends BaseTest {
         filter.setName("Demo Project");
         filter.setDescription("A Filter for the Demo Project");
         filter.setFavourite(Boolean.TRUE);
-        filter.setJql("project = DEMO");
+        filter.setJql("project = " + projectKeyToSearch);
         final Future<FilterBean> future = jiraRestClient.getSearchClient().createSearchFilter(filter);
         final FilterBean filterBean;
         try {

@@ -31,10 +31,17 @@ class BaseTest implements JqlConstants, RestPathConstants {
     static final String URL_PARAM = "url";
     static final String LOGIN_PARAM = "login";
     static final String PASSWORD_PARAM = "password";
+    static final String USERNAME_PARAM = "username";
+    static final String ISSUE_KEY_PARAM = "issueKey";
+    static final String PROJECT_KEY_PARAM = "projectKey";
 
-    static final String USERNAME_TO_SEARCH = "admin";
-    static final String ISSUEKEY_TO_SEARCH = "DEMO-1";
-    static final String PROJECT_TO_SEARCH = "DEMO";
+    static String usernameToSearch = "admin";
+
+    // Attention: Issue must have an attachment and environment field must be in the issue screen
+    static String issueKeyToSearch = "DEMO-1";
+
+    // Attention: Project must have components
+    static String projectKeyToSearch = "DEMO";
 
     String testSystemUrl = "http://localhost:2990/jira";
     String login = "admin";
@@ -66,6 +73,14 @@ class BaseTest implements JqlConstants, RestPathConstants {
         testSystemUrl = config.getProperty(URL_PARAM);
         login = config.getProperty(LOGIN_PARAM);
         password = config.getProperty(PASSWORD_PARAM);
-
+        if (config.getProperty(USERNAME_PARAM) != null) {
+            usernameToSearch = config.getProperty(USERNAME_PARAM);
+        }
+        if (config.getProperty(ISSUE_KEY_PARAM) != null) {
+            issueKeyToSearch = config.getProperty(ISSUE_KEY_PARAM);
+        }
+        if (config.getProperty(PROJECT_KEY_PARAM) != null) {
+            projectKeyToSearch = config.getProperty(PROJECT_KEY_PARAM);
+        }
     }
 }

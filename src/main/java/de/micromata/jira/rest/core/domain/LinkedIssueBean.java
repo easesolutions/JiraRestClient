@@ -2,7 +2,7 @@ package de.micromata.jira.rest.core.domain;
 
 import com.google.gson.annotations.Expose;
 
-public class OutwardIssueBean {
+public class LinkedIssueBean {
 
     @Expose
     private String id;
@@ -11,7 +11,7 @@ public class OutwardIssueBean {
     @Expose
     private String self;
     @Expose
-    private OutwardIssueFieldsBean fields;
+    private LinkedIssueFieldsBean fields;
 
     public String getId() {
         return id;
@@ -37,11 +37,11 @@ public class OutwardIssueBean {
         this.self = self;
     }
 
-    public OutwardIssueFieldsBean getFields() {
+    public LinkedIssueFieldsBean getFields() {
         return fields;
     }
 
-    public void setFields(OutwardIssueFieldsBean fields) {
+    public void setFields(LinkedIssueFieldsBean fields) {
         this.fields = fields;
     }
 }

@@ -3,7 +3,7 @@ package de.micromata.jira.rest.core.domain;
 
 import com.google.gson.annotations.Expose;
 
-public class TypeBean {
+public class IssueLinkTypeBean {
 
     @Expose
     private String id;

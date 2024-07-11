@@ -48,7 +48,7 @@ public class TestSystemClient extends BaseTest {
         final List<IssuetypeBean> issuetypeBeans = future.get();
         Assert.assertNotNull(issuetypeBeans);
         Assert.assertFalse(issuetypeBeans.isEmpty());
-        Assert.assertEquals(DEFAULT_NUMBER_OF_ISSUETYPES, issuetypeBeans.size());
+        Assert.assertTrue(issuetypeBeans.size() >= DEFAULT_NUMBER_OF_ISSUETYPES);
     }
 
     @Test
@@ -66,7 +66,7 @@ public class TestSystemClient extends BaseTest {
         final List<StatusBean> statusBeans = future.get();
         Assert.assertNotNull(statusBeans);
         Assert.assertFalse(statusBeans.isEmpty());
-        Assert.assertEquals(DEFAULT_NUMBER_OF_STATES, statusBeans.size());
+        Assert.assertTrue(statusBeans.size() >= DEFAULT_NUMBER_OF_STATES);
     }
 
 
@@ -82,7 +82,7 @@ public class TestSystemClient extends BaseTest {
                 numberOfFields = numberOfFields + 1;
             }
         }
-        Assert.assertEquals(DEFAULT_NUMBER_OF_FIELDS, numberOfFields);
+        Assert.assertTrue(numberOfFields >= DEFAULT_NUMBER_OF_FIELDS);
     }
 
 

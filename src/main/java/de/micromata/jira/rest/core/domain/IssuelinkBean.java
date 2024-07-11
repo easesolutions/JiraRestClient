@@ -9,9 +9,11 @@ public class IssuelinkBean {
     @Expose
     private String self;
     @Expose
-    private TypeBean type;
+    private IssueLinkTypeBean type;
     @Expose
-    private OutwardIssueBean outwardIssue;
+    private LinkedIssueBean inwardIssue;
+    @Expose
+    private LinkedIssueBean outwardIssue;
 
     public String getId() {
         return id;
@@ -29,19 +31,27 @@ public class IssuelinkBean {
         this.self = self;
     }
 
-    public TypeBean getType() {
+    public IssueLinkTypeBean getType() {
         return type;
     }
 
-    public void setType(TypeBean type) {
+    public void setType(IssueLinkTypeBean type) {
         this.type = type;
     }
 
-    public OutwardIssueBean getOutwardIssue() {
+    public LinkedIssueBean getInwardIssue() {
+        return inwardIssue;
+    }
+
+    public void setInwardIssue(LinkedIssueBean inwardIssue) {
+        this.inwardIssue = inwardIssue;
+    }
+
+    public LinkedIssueBean getOutwardIssue() {
         return outwardIssue;
     }
 
-    public void setOutwardIssue(OutwardIssueBean outwardIssue) {
+    public void setOutwardIssue(LinkedIssueBean outwardIssue) {
         this.outwardIssue = outwardIssue;
     }
 }

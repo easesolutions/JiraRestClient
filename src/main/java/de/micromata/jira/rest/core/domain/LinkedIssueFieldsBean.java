@@ -2,8 +2,10 @@ package de.micromata.jira.rest.core.domain;
 
 import com.google.gson.annotations.Expose;
 
-public class OutwardIssueFieldsBean {
+public class LinkedIssueFieldsBean {
 
+    @Expose
+    private UserBean assignee;
     @Expose
     private String summary;
     @Expose
@@ -12,6 +14,16 @@ public class OutwardIssueFieldsBean {
     private PriorityBean priority;
     @Expose
     private IssuetypeBean issuetype;
+    @Expose
+    private TimetrackingBean timetracking;
+
+    public UserBean getAssignee() {
+        return assignee;
+    }
+
+    public void setAssignee(UserBean assignee) {
+        this.assignee = assignee;
+    }
 
     public String getSummary() {
         return summary;
@@ -43,5 +55,13 @@ public class OutwardIssueFieldsBean {
 
     public void setIssuetype(IssuetypeBean issuetype) {
         this.issuetype = issuetype;
+    }
+
+    public TimetrackingBean getTimetracking() {
+        return timetracking;
+    }
+
+    public void setTimetracking(TimetrackingBean timetracking) {
+        this.timetracking = timetracking;
     }
 }

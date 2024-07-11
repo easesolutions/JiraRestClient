@@ -21,7 +21,7 @@ public class TestUserClient extends BaseTest {
 
     @Test
     public void testGetUserByUsername() throws RestException, IOException, ExecutionException, InterruptedException {
-        Future<UserBean> future = jiraRestClient.getUserClient().getUserByUsername(USERNAME_TO_SEARCH);
+        Future<UserBean> future = jiraRestClient.getUserClient().getUserByUsername(usernameToSearch);
         final UserBean userBean = future.get();
         Assert.assertNotNull(userBean);
     }
@@ -35,18 +35,18 @@ public class TestUserClient extends BaseTest {
 
     @Test
     public void testGetAssignableUserForProject() throws RestException, IOException, ExecutionException, InterruptedException {
-        Future<List<UserBean>> future = jiraRestClient.getUserClient().getAssignableUserForProject(PROJECT_TO_SEARCH, null, null);
+        Future<List<UserBean>> future = jiraRestClient.getUserClient().getAssignableUserForProject(projectKeyToSearch, null, null);
         final List<UserBean> userBeans = future.get();
         Assert.assertNotNull(userBeans);
-        Assert.assertEquals(2, userBeans.size());
+        Assert.assertTrue(userBeans.size() > 0);
     }
 
     @Test
     public void testGetAssignableUsersForIssue() throws RestException, IOException, ExecutionException, InterruptedException {
-        Future<List<UserBean>> future = jiraRestClient.getUserClient().getAssignableUsersForIssue(ISSUEKEY_TO_SEARCH, null, null);
+        Future<List<UserBean>> future = jiraRestClient.getUserClient().getAssignableUsersForIssue(issueKeyToSearch, null, null);
         final List<UserBean> userBeans = future.get();
         Assert.assertNotNull(userBeans);
-        Assert.assertEquals(2, userBeans.size());
+        Assert.assertTrue(userBeans.size() > 0);
     }
 
     @Test

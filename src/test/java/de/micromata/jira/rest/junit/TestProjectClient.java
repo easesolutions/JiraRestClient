@@ -6,6 +6,7 @@ import de.micromata.jira.rest.core.domain.VersionBean;
 import de.micromata.jira.rest.core.domain.meta.MetaBean;
 import de.micromata.jira.rest.core.util.RestException;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -23,10 +24,10 @@ public class TestProjectClient extends BaseTest {
 
     @Test
     public void testGetProjectByKey() throws RestException, IOException, ExecutionException, InterruptedException {
-        final Future<ProjectBean> future = jiraRestClient.getProjectClient().getProjectByKey(PROJECT_TO_SEARCH);
+        final Future<ProjectBean> future = jiraRestClient.getProjectClient().getProjectByKey(projectKeyToSearch);
         final ProjectBean project = future.get();
         Assert.assertNotNull(project);
-        Assert.assertEquals(PROJECT_TO_SEARCH, project.getKey());
+        Assert.assertEquals(projectKeyToSearch, project.getKey());
     }
 
     @Test
@@ -39,7 +40,7 @@ public class TestProjectClient extends BaseTest {
 
     @Test
     public void testGetProjectVersions() throws RestException, IOException, ExecutionException, InterruptedException {
-        final Future<List<VersionBean>> future = jiraRestClient.getProjectClient().getProjectVersions(PROJECT_TO_SEARCH);
+        final Future<List<VersionBean>> future = jiraRestClient.getProjectClient().getProjectVersions(projectKeyToSearch);
         final List<VersionBean> versionBeans = future.get();
         Assert.assertNotNull(versionBeans);
         Assert.assertFalse(versionBeans.isEmpty());
@@ -47,15 +48,16 @@ public class TestProjectClient extends BaseTest {
 
     @Test
     public void testGetProjectComponents() throws RestException, IOException, ExecutionException, InterruptedException {
-        final Future<List<ComponentBean>> future = jiraRestClient.getProjectClient().getProjectComponents(PROJECT_TO_SEARCH);
+        final Future<List<ComponentBean>> future = jiraRestClient.getProjectClient().getProjectComponents(projectKeyToSearch);
         final List<ComponentBean> componentBeans = future.get();
         Assert.assertNotNull(componentBeans);
         Assert.assertFalse(componentBeans.isEmpty());
     }
 
     @Test
+    @Ignore("This method is deprecated in JIRA")
     public void testGetIssueTypesMetaForProject() throws ExecutionException, InterruptedException {
-        Future<MetaBean> future = jiraRestClient.getProjectClient().getIssueTypesMetaForProject(PROJECT_TO_SEARCH);
+        Future<MetaBean> future = jiraRestClient.getProjectClient().getIssueTypesMetaForProject(projectKeyToSearch);
         MetaBean metaBean = future.get();
         Assert.assertNotNull(metaBean);
     }

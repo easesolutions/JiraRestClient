@@ -6,7 +6,6 @@ import de.micromata.jira.rest.core.domain.VersionBean;
 import de.micromata.jira.rest.core.domain.meta.MetaBean;
 import de.micromata.jira.rest.core.util.RestException;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.Future;
 
