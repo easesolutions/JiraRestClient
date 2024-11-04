@@ -1,8 +1,6 @@
 package de.micromata.jira.rest.core.domain.customFields;
 
 
-import org.apache.commons.lang3.StringUtils;
-
 /**
  * Created by cschulc on 19.02.16.
  */

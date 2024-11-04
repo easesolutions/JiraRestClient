@@ -3,9 +3,7 @@ package de.micromata.jira.rest.client;
 import de.micromata.jira.rest.core.domain.JqlSearchResult;
 import de.micromata.jira.rest.core.domain.filter.FilterBean;
 import de.micromata.jira.rest.core.jql.JqlSearchBean;
-import de.micromata.jira.rest.core.util.RestException;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.Future;
 

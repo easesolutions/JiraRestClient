@@ -20,7 +20,6 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.utils.URIBuilder;
 
-import java.io.IOException;
 import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.util.ArrayList;

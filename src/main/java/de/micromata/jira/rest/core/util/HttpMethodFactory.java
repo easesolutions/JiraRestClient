@@ -12,7 +12,6 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.message.BasicHeader;
 
 import javax.ws.rs.core.MediaType;
-import java.io.UnsupportedEncodingException;
 import java.net.URI;
 
 /**

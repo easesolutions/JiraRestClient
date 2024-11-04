@@ -12,7 +12,6 @@ import org.apache.http.HttpHost;
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.client.AuthCache;
-import org.apache.http.client.CookieStore;
 import org.apache.http.client.CredentialsProvider;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -50,7 +49,6 @@ public class JiraRestClient implements RestParamConstants, RestPathConstants {
     private String username = StringUtils.EMPTY;
     private CloseableHttpClient httpclient;
     private HttpHost proxyHost;
-    private CookieStore cookieStore = new BasicCookieStore();
     private HttpClientContext clientContext;
 
     private static Map<String, FieldBean> customfields;

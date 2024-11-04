@@ -1,7 +1,5 @@
 package de.micromata.jira.rest.core.domain.update;
 
-import org.apache.commons.lang3.StringUtils;
-
 /**
  * User: Christian Schulze
  * Email: c.schulze@micromata.de
